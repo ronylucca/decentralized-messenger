@@ -19,7 +19,7 @@ contract Messenger {
 
     Wave[] waves;
 
-    constructor(){
+    constructor() payable{
         console.log("Hey, here is the first message from this new messenger!");
     }
 
@@ -32,6 +32,14 @@ contract Messenger {
 
 
         emit NewWave(msg.sender, block.timestamp, _message);
+
+        uint256 prizeAmount = 0.0001 ether;
+        require(
+            prizeAmount <= address(this).balance,
+            "Trying to withdraw more money than the contract has."
+        );
+        (bool success, ) = (msg.sender).call{value: prizeAmount}("");
+        require(success, "Failed to withdraw money from contract.");
     }
 
     function getTotalWaves() public view returns (uint256){
