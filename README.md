@@ -4,6 +4,7 @@ This is a simple contract used to process transactions in a messenger
 
 This contract is used to: 
 
+
 - send a message
 - there is a counter and a public method that frontent is calling to render it's data.
 - At the creation of this contract 0.01 Ether is sent to its treasure.
