@@ -10,7 +10,7 @@ const main = async() => {
 
     const messengerContractFactory = await hre.ethers.getContractFactory("Messenger");
     const messengerContract = await messengerContractFactory.deploy({
-        value: hre.ethers.utils.parseEther("0.001"),
+        value: hre.ethers.utils.parseEther("0.01"),
     });
     await messengerContract.deployed();
     
